@@ -6,11 +6,12 @@
 typedef struct cell
 {
 	char str[20];		//文字列
+	int price;
 	struct cell* prev;	//前のセル
 	struct cell* next;	//次のセル
 }CELL;
 
-//値を追加する関数
+//セルを追加する関数
 void Create(CELL* currentCell, const char *buf, const int strSize);
 //セルの一覧表示
 void Index(CELL* endCell);
@@ -19,10 +20,11 @@ CELL* GetInsertListAddress(CELL* endcell, int iterator);
 
 int main()
 {
-	const int strSize = 20;
-	char str[strSize];	//挿入する値
-	int iterator;		//挿入する箇所
-	CELL* insertCell;	//
+	const int strSize = 20;	//文字数
+	char str[strSize];		//寿司の名前
+	int price;				// 〃 の値段
+	int iterator;			//挿入する箇所
+	CELL* insertCell;		//
 
 	//先頭に内容が空のセルを宣言(先頭であることを明示する為)
 	CELL head;
@@ -36,6 +38,9 @@ int main()
 
 		printf("好きなお寿司を入力してください\n");
 		scanf_s("%s", &str,strSize);
+
+		printf("1貫の値段を入力して下さい\n");
+		scanf_s("%d", &price);
 
 		//挿入したいセルのアドレスを取得
 		insertCell = GetInsertListAddress(&head, iterator);
