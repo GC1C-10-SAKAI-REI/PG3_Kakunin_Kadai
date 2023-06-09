@@ -1,16 +1,17 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 //自己参照構造体
 typedef struct cell
 {
-	int val;			//値
+	char str[20];		//文字列
 	struct cell* prev;	//前のセル
 	struct cell* next;	//次のセル
 }CELL;
 
 //値を追加する関数
-void Create(CELL* currentCell, int val);
+void Create(CELL* currentCell, const char *buf, const int strSize);
 //セルの一覧表示
 void Index(CELL* endCell);
 //任意の位置のアドレスまで辿る関数
@@ -18,8 +19,9 @@ CELL* GetInsertListAddress(CELL* endcell, int iterator);
 
 int main()
 {
+	const int strSize = 20;
+	char str[strSize];	//挿入する値
 	int iterator;		//挿入する箇所
-	int inputVal;		//挿入する値
 	CELL* insertCell;	//
 
 	//先頭に内容が空のセルを宣言(先頭であることを明示する為)
@@ -29,16 +31,16 @@ int main()
 
 	while (true)
 	{
-		printf("何番目のセルの後ろに挿入しますか？\n");
+		printf("何番目に好きなお寿司ですか？\n");
 		scanf_s("%d", &iterator);
 
-		printf("挿入する値を入力してください\n");
-		scanf_s("%d", &inputVal);
+		printf("好きなお寿司を入力してください\n");
+		scanf_s("%s", &str,strSize);
 
 		//挿入したいセルのアドレスを取得
 		insertCell = GetInsertListAddress(&head, iterator);
 		//セルの追加
-		Create(insertCell, inputVal);
+		Create(insertCell, str, strSize);
 		//リスト一覧の表示
 		Index(&head);
 	}
@@ -46,12 +48,13 @@ int main()
 	return 0;
 }
 
-void Create(CELL* currentCell, int val)
+void Create(CELL* currentCell, const char *buf, const int strSize)
 {
 	//Step1：新規にセルを追加
 	CELL* newCell;
 	newCell = (CELL*)malloc(sizeof(CELL));	//新規セル用のメモリ確保
-	newCell->val = val;						//値を代入
+	
+	strcpy_s(newCell->str, strSize, buf);	//値を代入
 	newCell->prev = currentCell;			//新しいセルの前は現在の最後尾
 	newCell->next = currentCell->next;		//新しいセルの次は
 
@@ -74,7 +77,7 @@ void Index(CELL* endCell)
 		endCell = endCell->next;
 		printf("%d", no);
 		printf("%p", endCell->prev);
-		printf("%5d", endCell->val);//5桁まで右揃え
+		printf("%5s", endCell->str);//5桁まで右揃え
 		printf("(%p)", endCell);
 		printf("%p\n", endCell->next);
 		no++;
