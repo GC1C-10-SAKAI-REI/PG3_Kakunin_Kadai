@@ -1,11 +1,13 @@
 #pragma once
+#include <stdio.h>
 
 class Check
 {
 	//メンバ変数
 public:
-	char name[20];	//名前
-	int age;		//年齢
+	static const int nameLength_ = 20;
+	char name_[nameLength_] = { "noName" };	//名前
+	int age_;								//年齢
 
 	//メンバ関数
 public:

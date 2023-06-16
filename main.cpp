@@ -1,11 +1,9 @@
 #include<stdio.h>
+#include "Check.h"
 
 int main()
 {
-	while (true)
-	{
-
-	}
+	
 
 	return 0;
 }
