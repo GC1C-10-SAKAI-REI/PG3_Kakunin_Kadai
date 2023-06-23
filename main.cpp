@@ -45,7 +45,7 @@ int main()
 		//挿入したいセルのアドレスを取得
 		insertCell = GetInsertListAddress(&head, iterator);
 		//セルの追加
-		Create(insertCell, str, strSize,price);
+		Create(insertCell, str, strSize,price	);
 		//リスト一覧の表示
 		Index(&head);
 	}
@@ -77,18 +77,20 @@ void Create(CELL* currentCell, const char *buf, const int strSize,const int pric
 
 void Index(CELL* endCell)
 {
-	printf("|rank|前のアドレス|寿司ネタ|値段| アドレス |次のアドレス|\n");
+	//表の一番上表示
+	printf("|rank|  前のアドレス  |寿司ネタ|値段|    アドレス    |  次のアドレス  |\n");
+	printf("-----------------------------------------------------------------------\n");
 	//ランク
 	int rank = 1;
 	while (endCell->next != nullptr)
 	{
 		endCell = endCell->next;
-		printf("|%4d|", rank);
-		printf("%p|", endCell->prev);
-		printf("%5s|", endCell->str);//5桁まで右揃え
-		printf("%d|", endCell->price);
-		printf("%p|", endCell);
-		printf("%p|\n", endCell->next);
+		printf("|%4d|", rank);			//ランク表示
+		printf("%p|", endCell->prev);	//前ポインタ表示
+		printf("%8s|", endCell->str);	//寿司ネタ表示
+		printf("%4d|", endCell->price);	//値段表示
+		printf("%p|", endCell);			//アドレス表示
+		printf("%p|\n", endCell->next);	//次のアドレス表示
 		rank++;
 	}
 }
