@@ -6,13 +6,13 @@
 typedef struct cell
 {
 	char str[20];		//文字列
-	int price;
+	int price;			//値段
 	struct cell* prev;	//前のセル
 	struct cell* next;	//次のセル
 }CELL;
 
 //セルを追加する関数
-void Create(CELL* currentCell, const char *buf, const int strSize);
+void Create(CELL* currentCell, const char *buf, const int strSize,const int price);
 //セルの一覧表示
 void Index(CELL* endCell);
 //任意の位置のアドレスまで辿る関数
@@ -45,7 +45,7 @@ int main()
 		//挿入したいセルのアドレスを取得
 		insertCell = GetInsertListAddress(&head, iterator);
 		//セルの追加
-		Create(insertCell, str, strSize);
+		Create(insertCell, str, strSize,price);
 		//リスト一覧の表示
 		Index(&head);
 	}
@@ -53,13 +53,14 @@ int main()
 	return 0;
 }
 
-void Create(CELL* currentCell, const char *buf, const int strSize)
+void Create(CELL* currentCell, const char *buf, const int strSize,const int price)
 {
 	//Step1：新規にセルを追加
 	CELL* newCell;
 	newCell = (CELL*)malloc(sizeof(CELL));	//新規セル用のメモリ確保
 	
 	strcpy_s(newCell->str, strSize, buf);	//値を代入
+	newCell->price = price;	
 	newCell->prev = currentCell;			//新しいセルの前は現在の最後尾
 	newCell->next = currentCell->next;		//新しいセルの次は
 
@@ -83,10 +84,11 @@ void Index(CELL* endCell)
 	{
 		endCell = endCell->next;
 		printf("|%4d|", rank);
-		printf("|%p|", endCell->prev);
-		printf("|%5s|", endCell->str);//5桁まで右揃え
-		printf("(%p)", endCell);
-		printf("|%p|\n", endCell->next);
+		printf("%p|", endCell->prev);
+		printf("%5s|", endCell->str);//5桁まで右揃え
+		printf("%d|", endCell->price);
+		printf("%p|", endCell);
+		printf("%p|\n", endCell->next);
 		rank++;
 	}
 }
