@@ -77,16 +77,17 @@ void Create(CELL* currentCell, const char *buf, const int strSize)
 void Index(CELL* endCell)
 {
 	printf("|rank|前のアドレス|寿司ネタ|値段| アドレス |次のアドレス|\n");
-	int no = 1;
+	//ランク
+	int rank = 1;
 	while (endCell->next != nullptr)
 	{
 		endCell = endCell->next;
-		printf("%d", no);
-		printf("%p", endCell->prev);
-		printf("%5s", endCell->str);//5桁まで右揃え
+		printf("|%4d|", rank);
+		printf("|%p|", endCell->prev);
+		printf("|%5s|", endCell->str);//5桁まで右揃え
 		printf("(%p)", endCell);
-		printf("%p\n", endCell->next);
-		no++;
+		printf("|%p|\n", endCell->next);
+		rank++;
 	}
 }
 
