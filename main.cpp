@@ -76,6 +76,7 @@ void Create(CELL* currentCell, const char *buf, const int strSize)
 
 void Index(CELL* endCell)
 {
+	printf("|rank|前のアドレス|寿司ネタ|値段| アドレス |次のアドレス|\n");
 	int no = 1;
 	while (endCell->next != nullptr)
 	{
