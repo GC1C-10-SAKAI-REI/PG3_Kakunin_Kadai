@@ -5,7 +5,7 @@ class Check
 {
 	//メンバ変数
 public:
-	static const int nameLength_ = 20;
+	static const int nameLength_ = 40;
 	char name_[nameLength_] = { "noName" };	//名前
 	int age_;								//年齢
 
@@ -19,6 +19,7 @@ public:
 	int Get(int index);
 	//指定されたインデックスの配列の要素を変更する
 	void Set(int index, char val);
+
 private:
 	//指定されたインデックスが配列の範囲内かチェックする
 	void checkIndex(int index);
