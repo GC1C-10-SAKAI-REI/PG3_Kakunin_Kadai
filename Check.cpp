@@ -35,5 +35,6 @@ void Check::checkAge(int age)
 	else
 	{
 		printf("”N—î‚ª‘ÎÛŠO‚Å‚·\n");
+		system("pause");
 	}
 }
