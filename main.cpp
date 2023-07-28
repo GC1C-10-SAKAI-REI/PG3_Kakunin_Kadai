@@ -8,4 +8,6 @@ int main()
 	//コピーコンストラクタ呼び出し
 	Pokemon* clone = new Pokemon(*pokemon);
 	clone->Birth();
+
+	return 0;
 }
