@@ -1,24 +1,45 @@
 #include "Pokemon.h"
+#include <iostream>
+
+Pokemon::Pokemon()
+{
+	SetName("");
+}
 
 Pokemon::Pokemon(const char* name)
 {
-	this->_name = name;
-	_cName = this->_name;
-	printf("%sがあらわれた！\n", _name);
+	SetName(name);
+	Encounter();
+}
+
+Pokemon::Pokemon(const Pokemon& copyPoke)
+{
+	printf("\nコピーします\n\n");
+	GetName();
+	SetName(copyPoke._name.c_str());
+	Encounter();
 }
 
 Pokemon::~Pokemon()
 {
-	delete _pokeJr;
+	if (_pokeJr != nullptr)
+	{
+		delete _pokeJr;
+	}
 }
 
-Pokemon::Pokemon(const Pokemon &copyPoke)
+void Pokemon::SetName(const char* name)
 {
-	_name = copyPoke._name;
+	this->_name = std::string(name);
+}
+
+void Pokemon::Encounter()
+{
+	std::cout << _name << "があらわれた！" << std::endl;
 }
 
 void Pokemon::Birth()
 {
-	/*strcat(, "Jr");
-	_pokeJr = new Pokemon();*/
+	std::string name = this->GetName() + ".Jr";
+	_pokeJr = new Pokemon(name.c_str());
 }

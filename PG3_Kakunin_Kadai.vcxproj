@@ -131,7 +131,6 @@
     <ClCompile Include="Pokemon.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Clone.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Struct.h" />
   </ItemGroup>
