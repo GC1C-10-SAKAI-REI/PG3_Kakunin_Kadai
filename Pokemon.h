@@ -1,16 +1,22 @@
 #pragma once
 #include <stdio.h>
+#include <string.h>
 
 class Pokemon
 {
+private:
+	const char *_name;
+	const char *_cName = nullptr;
+	Pokemon *_pokeJr = nullptr;
+
 public:
 	//コンストラクタ
-	Pokemon(const char *name);
+	Pokemon(const char* name);
+	//コピーコンストラクタ
+	Pokemon(const Pokemon& copyPoke);
 	//デストラクタ
 	~Pokemon();
-	//コピーコンストラクタ
-	Pokemon(const Pokemon &clone);
-
-private:
-	const char *name_ = {};
+	//子供を産む関数
+	void Birth();
+	const char* GetName() { return _name; }
 };

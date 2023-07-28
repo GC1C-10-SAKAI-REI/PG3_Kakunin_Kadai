@@ -1,19 +1,24 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon(const char *name)
+Pokemon::Pokemon(const char* name)
 {
-	this->name_ = name;
-	printf("%sがうまれた!\n",name_);
+	this->_name = name;
+	_cName = this->_name;
+	printf("%sがあらわれた！\n", _name);
 }
 
 Pokemon::~Pokemon()
 {
-	
+	delete _pokeJr;
 }
 
-Pokemon::Pokemon(const Pokemon & clone)
+Pokemon::Pokemon(const Pokemon &copyPoke)
 {
-	printf("%sは双子だった、もう一匹うまれた！\n", clone.name_);
+	_name = copyPoke._name;
+}
 
-	name_ = clone.name_;
+void Pokemon::Birth()
+{
+	/*strcat(, "Jr");
+	_pokeJr = new Pokemon();*/
 }

@@ -1,9 +1,10 @@
 #include "Pokemon.h"
+#include "Clone.h"
 
 int main()
 {
-	Pokemon *pokemon1 = new Pokemon("キモリ");
-	Pokemon* pokemon2 = new Pokemon(*pokemon1);
-
-	return 0;
+	//親生成
+	Pokemon *pokemon = new Pokemon("キモリ");
+	//子供生成
+	pokemon->Birth();
 }
