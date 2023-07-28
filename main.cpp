@@ -2,10 +2,10 @@
 
 int main()
 {
-	//コンストラクタ呼び出し
-	Pokemon* pokemon = new Pokemon("ピカチュー");
-	pokemon->Birth();
-	//コピーコンストラクタ呼び出し
+	//コンストラクタ
+	Pokemon* pokemon = new Pokemon("キモリ");
+	//コピコン
 	Pokemon* clone = new Pokemon(*pokemon);
-	clone->Birth();
+
+	return 0;
 }
