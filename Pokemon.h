@@ -11,6 +11,6 @@ public:
 	Pokemon(const char *name);
 	//代入演算子のオーバーロード
 	Pokemon &operator=(const Pokemon &obj);
-	//
+	//ゲッター
 	const char* GetName() { return _name; }
 };
