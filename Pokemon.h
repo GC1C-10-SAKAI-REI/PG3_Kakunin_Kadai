@@ -10,9 +10,21 @@ private:
 
 public:
 	//コンストラクタ
-	Pokemon(const char *name);
-	//代入演算子のオーバーロード
-	Pokemon &operator=(const Pokemon &obj);
-	//ゲッター
-	const char* GetName() { return _name; }
+	Pokemon();
+	//コンストラクタ
+	Pokemon(const char* name);
+	//コピーコンストラクタ
+	Pokemon(const Pokemon& copyPoke);
+	//デストラクタ
+	~Pokemon();
+	//
+	void SetName(const char* name);
+	//
+	void Encounter();
+	//子供を産む関数
+	void Birth();
+	//
+	std::string GetName() { return _name; }
+	//
+	std::string GetJrName()
 };
