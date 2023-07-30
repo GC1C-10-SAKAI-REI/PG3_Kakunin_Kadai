@@ -1,12 +1,12 @@
 #pragma once
-#include<stdio.h>
-#include <string.h>
+
 #include <string>
 
 class Pokemon
 {
 private:
-	const char* _name;
+	Pokemon* _pokeJr;
+	std::string _name;
 
 public:
 	//コンストラクタ
