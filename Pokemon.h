@@ -26,5 +26,5 @@ public:
 	//
 	std::string GetName() { return _name; }
 	//
-	std::string GetJrName()
+	std::string GetJrName() { return _pokeJr->GetName(); }
 };
