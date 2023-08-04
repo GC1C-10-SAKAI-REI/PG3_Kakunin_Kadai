@@ -5,7 +5,7 @@ int main()
 {
 	int index;
 	const char* str[] = { "Matuzawa","810" };
-	printf("1`2‚Ü‚Å”š‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢\n");
+	printf("0`2‚Ü‚Å”š‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢\n");
 
 	scanf_s("%d", &index);
 
