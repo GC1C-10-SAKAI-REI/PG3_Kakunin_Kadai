@@ -3,20 +3,18 @@
 
 int main()
 {
-	Check *index = new Check();
+	int index;
+	const char* str[] = { "Matuzawa","810" };
+	printf("1`2‚Ü‚Å”Žš‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢\n");
 
-	const int nameLength = 20;
-	char name[nameLength];
-	int age = 0;
+	scanf_s("%d", &index);
 
-	while (true)
-	{
-		printf("–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
-		scanf_s("%s", &name, nameLength);
+	Check *check = new Check(index,str[0]);
+	printf("get‚Ì•¶Žš%c\n", check->Get(index));
+	check->Set(index, 'e');
+	printf("setŒã‚Ì•¶Žš—ñ%s\n", check->_name);
 
-		printf("”N—î‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
-		scanf_s("%d", &age);
-	}	
+	delete check;
 
 	return 0;
 }

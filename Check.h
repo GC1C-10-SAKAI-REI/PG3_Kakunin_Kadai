@@ -6,19 +6,17 @@ class Check
 {
 	//メンバ変数
 public:
-	static const int nameLength_ = 20;
-	static const int indexStorage = 5;
-	char name_[indexStorage][nameLength_] = { { "noName" } };	//名前
-	int age_;								//年齢
+	char _name[20];
+	int _age;		//年齢
 
 	//メンバ関数
 public:
 	//コンストラクタ
-	Check();
+	Check(int index,const char* str);
 	//デストラクタ
 	~Check();
 	//指定されたインデックスの配列の要素を返す
-	int Get(int index);
+	char Get(int index);
 	//指定されたインデックスの配列の要素を変更する
 	void Set(int index, char val);
 
